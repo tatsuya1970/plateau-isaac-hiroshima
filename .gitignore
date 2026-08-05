@@ -1,0 +1,20 @@
+# 都市データ（PLATEAU CityGML zip 1.2GB + 展開物 + OBJ/USD 中間生成物、計約1.9GB）
+# README のパイプライン手順で再生成できるためコミットしない
+data/
+
+# Isaac Lab のチェックアウト（上流リポジトリ v2.3.2。README の手順で各自 clone）
+IsaacLab/
+
+# 学習済みポリシー（初回実行時に自動ダウンロード）
+.pretrained_checkpoints/
+
+# Python
+__pycache__/
+*.py[cod]
+
+# Claude Code のローカル設定
+.claude/settings.local.json
+
+# レンダリング中間生成物（確認用フレーム・リネーム前の生ビデオ）
+videos/rl-video-step-*.mp4
+videos/frame-*.png
