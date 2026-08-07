@@ -1,0 +1,2 @@
+# cmd はCRLFでないとラベル/goto周りで誤動作することがあるため、バッチは必ずCRLFで取り出す
+*.bat text eol=crlf

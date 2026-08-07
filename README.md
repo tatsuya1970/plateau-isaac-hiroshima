@@ -43,6 +43,20 @@ G空間情報センター CityGML zip（data/に取得済み）
 
 ## デモ実行
 
+### かんたん起動（Windows）
+
+`run-demo.bat` をダブルクリック → Isaac SimのGUIが開き、G1が紙屋町から相生通りを歩く。
+ビューポートは右ドラッグで視点回転、WASDで飛行、ホイールで前後。停止はターミナルで `Ctrl+C`。
+
+引数を渡せばそのままデモスクリプトに素通しされる（`--headless` を付ければ従来の動画録画になる）。
+
+```
+run-demo.bat --spawn -60 -260 --heading 90        # 平和記念公園から北へ
+run-demo.bat --headless --video --video_length 450 # 動画録画
+```
+
+### 直接実行
+
 ```
 # G1が紙屋町の相生通りを歩く＋実バス表示（動画は videos/ に出力）
 .venv-isaacのpython -X utf8 -u tools/g1_hiroshima_demo.py --headless --video --video_length 450 \
