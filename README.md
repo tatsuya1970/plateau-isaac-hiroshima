@@ -20,6 +20,11 @@
 - `tensordict` は **0.8.3 に固定**（0.13はtorch 2.7とABI不一致でSegfault）
 - torch は **cu128ビルド**（`--index-url https://download.pytorch.org/whl/cu128`。
   pipが依存解決でCPU版に置き換えたら `--force-reinstall --no-deps` で戻す）
+- `h5py` は **3.15.1 に固定**（`pip install --no-deps "h5py==3.15.1"`）。
+  h5py 3.16はHDF5 2.0.0同梱で、Isaac Simが積む `hdf5.dll`（1.14.6）とプロセス内で衝突する。
+  GUIモードのみ `omni.sensors.nv.*` が先に1.14.6を掴むため、後から読まれる h5py が
+  `ImportError: DLL load failed while importing _errors` で落ち、`isaaclab_tasks` 拡張ごと死ぬ
+  （headlessでは同拡張が読まれないので発症しない）。3.15.1はHDF5 1.14.6同梱で完全一致
 - `flatdict` は `--no-build-isolation` でインストール（setuptools 81+のpkg_resources削除問題）
 - `starlette<0.46` / `typing_extensions==4.12.2` は isaacsim-kernel 側の制約が優先
 
